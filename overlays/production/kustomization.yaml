@@ -1,0 +1,20 @@
+#Production
+kind: Kustomization
+
+#path to base directory
+bases:
+- ../../base
+
+#Add name prefix "prod"
+namePrefix: prod-
+
+commonLabels:
+  app: prod-todolist.js
+
+images:
+  - name: mysql-db-image
+    newName: quay.io/example/todo-single
+    newTag: v1.1
+
+#patches:
+#  - pvc.yaml

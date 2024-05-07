@@ -1,0 +1,22 @@
+kind: Kustomization
+
+bases:
+  - ../../base
+
+resources:
+- dbclaim-pvc.yaml
+- route.yaml
+
+#Add name prefix "dev"
+namePrefix: dev-
+
+#commonLabels:
+#  app: dev-todolist.js
+
+#images:
+#  - name: mysql-db-image
+#    newName: quay.io/example/todo-single
+#    newTag: v2.0-beta
+
+patches:
+- patch-pvc.yaml
