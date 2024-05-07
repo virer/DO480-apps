@@ -1,20 +1,11 @@
-#Production
 kind: Kustomization
 
-#path to base directory
 bases:
-- ../../base
+  - ../../base
 
-#Add name prefix "prod"
+resources:
+- dbclaim-pvc.yaml
+- route-mng.yaml
+
 namePrefix: prod-
 
-commonLabels:
-  app: prod-todolist.js
-
-images:
-  - name: mysql-db-image
-    newName: quay.io/example/todo-single
-    newTag: v1.1
-
-#patches:
-#  - pvc.yaml
